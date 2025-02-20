@@ -6,23 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="gateway" />
-      </profile>
-      <profile name="Annotation profile for sms" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="sms" />
+        <module name="service-discovery" />
+        <module name="sms-service" />
+        <module name="call-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gateway" target="21" />
+      <module name="sms" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="call-service" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="service-discovery" options="-parameters" />
       <module name="sms" options="-parameters" />
+      <module name="sms-service" options="-parameters" />
     </option>
   </component>
 </project>
