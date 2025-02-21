@@ -15,8 +15,7 @@ spring:
         - id: call-service
           uri: lb://call-service
           predicates:
-              - Path=/call
-
+            - Path=/call
 
 server:
   port: 8080
@@ -27,3 +26,12 @@ eureka:
       defaultZone: http://localhost:8761/eureka
     register-with-eureka: true
     fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, gateway
+  endpoint:
+    health:
+      show-details: always
